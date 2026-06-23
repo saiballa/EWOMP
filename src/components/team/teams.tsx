@@ -32,7 +32,6 @@ const TeamsPage: React.FC = () => {
       return image_preview;
     } catch (error) {
       console.log(error);
-      return null;
     }
   };
 
