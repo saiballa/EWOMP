@@ -8,7 +8,6 @@ interface ImportMetaEnv{
    readonly VITE_APPWRITE_ONBOARDING:string
    readonly VITE_APPWRITE_AUDITLogs:string
    readonly VITE_APPWRITE_ADMIN_TABLE:string
-   readonly VITE_APPWRITE_EMPLOYEE_LIFECYCLE:string
 }
 
 interface ImportMeta{

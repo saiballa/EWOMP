@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { database, DATABASE_ID, EMPLOYEE_LIST } from "../../../utils/appwrite";
+import { database, DATABASE_ID, EMPLOYEE_LIST,BUCKET_ID,storage } from "../../../utils/appwrite";
 import { useQuery } from "@tanstack/react-query";
 import { AuthState } from "../../store/authState";
 import type { EmployeeProfileType } from "../../types/type";
@@ -25,6 +25,16 @@ const TeamsPage: React.FC = () => {
     staleTime: 1000 * 60 * 1,
     gcTime: 1000 * 60 * 3,
   });
+
+  const getImagePreview = (id: string) => {
+    try {
+      const image_preview = storage.getFileView(BUCKET_ID, id).toString();
+      return image_preview;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  };
 
   const managerTeam = data?.documents.filter(
     (item) => item.managerId === employeeData?.name,
@@ -95,7 +105,7 @@ const TeamsPage: React.FC = () => {
           <div className="flex items-center gap-3">
             <img
               src={
-                employee.profilePic ||
+                getImagePreview(employee?.profilePic) ||
                 "https://ui-avatars.com/api/?name=Employee&background=e2e8f0&color=334155"
               }
               alt={employee.name}

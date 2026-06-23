@@ -19,7 +19,7 @@ export const DEPARTMENT_LIST=import.meta.env.VITE_APPWRITE_DEPARTMENT_LIST;
 export const EMPLOYEE_ONBOARDING = import.meta.env.VITE_APPWRITE_ONBOARDING;
 export const AUDIT_LOGS= import.meta.env.VITE_APPWRITE_AUDITLogs;
 export const ADMIN_TABLE=import.meta.env.VITE_APPWRITE_ADMIN_TABLE;
-export const EMPLOYEE_LIFECYCLE = import.meta.env.VITE_APPWRITE_EMPLOYEE_LIFECYCLE;
+
 
 
 export {ID,account,database,storage}

@@ -45,7 +45,7 @@ const RegisterEmployeePage: React.FC = () => {
       );
       return response;
     },
-    onSuccess: async(response, variables) => {
+    onSuccess: async(response) => {
       if(!listOfOnboardingEmployess.current) return;
       await database.updateDocument<Onboarding_Employee>(DATABASE_ID,EMPLOYEE_ONBOARDING,listOfOnboardingEmployess.current?.$id,{
               userId:response.$id,
@@ -54,7 +54,6 @@ const RegisterEmployeePage: React.FC = () => {
       toast.success(
         response?.message || "Employee account created successfully!",
       );
-      console.log(variables);
       navigate("/confirm");
     },
     onError: (response) => {
